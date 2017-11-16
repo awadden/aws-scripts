@@ -1,7 +1,7 @@
 import boto3
 import json
 
-# Define widgets, with text widget first stating that this DashBoard is being maintained automatically.
+# Define widgets, with a text widget first stating that this DashBoard is being maintained automatically.
 # This widget is a basic EC2 CPU Utilization widget with default values for x, y, etc....
 # This is where want to customize your widgets to what you desire, but you will need to edit the function that creates the widgets below
 widStart = """{"widgets":[{"type":"text","properties":{"markdown":"This Dashboard is generated automatically so don't mess with it.  Please!!"}},"""
