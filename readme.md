@@ -1,3 +1,7 @@
+findec2s.py
+This script finds running ec2 instances across all regions
+
+
 Lambda ASG CloudWatch Dashboards
 This script will call the describe-ASG function for the ASG that triggered it,  perform a count of EC2 instances in the ASG, and deploy a custom dashboard with a Text widget saying it’s an auto generated dashboard, and an individual CPU Utilization Metric widget for each EC2 instance in the ASG. 
 
