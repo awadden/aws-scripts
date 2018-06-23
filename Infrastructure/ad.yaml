@@ -5,8 +5,8 @@ Resources:
   myDirectory:
     Type: AWS::DirectoryService::SimpleAD
     Properties:
-      Name: workspace.example.com
-      Password: SimpleADPW20!8
+      Name: ws.test.net
+      Password: PutPassHereSimpleAD20!8
       Size: Small
       VpcSettings:
         SubnetIds:
