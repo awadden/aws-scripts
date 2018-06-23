@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Create Security Groups"
+
+Resources:
+  SGremoteAdmin:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow ssh and RDP to client host
+      VpcId: !ImportValue WS-Vpc
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 3389
+        ToPort: 3389
+        CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: 'sg_remoteAdminAccess'
+  SGwebAccess:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: !ImportValue WS-Vpc
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 443
+        ToPort: 443
+        CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: 'sg_webAccess'
+  SGdbAccess:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow db access from int hosts
+      VpcId: !ImportValue WS-Vpc
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 3306
+        ToPort: 3306
+        CidrIp: 10.66.0.0/16
+      Tags:
+        - Key: Name
+          Value: 'sg_dbAccess'

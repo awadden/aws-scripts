@@ -109,3 +109,19 @@ Resources:
    Properties:
     RouteTableId: !Ref PublicRouteTable
     SubnetId: !Ref DMZnet2
+Outputs:
+  StackVPC:
+    Description: The ID of the VPC
+    Value: !Ref VPC
+    Export:
+      Name: WS-Vpc
+  APPsubnet01:
+    Description: 'APPnet1 ID'
+    Value: !Ref APPnet1
+    Export:
+      Name: APPsubnet1
+  APPsubnet02:
+    Description: 'APPnet2 ID'
+    Value: !Ref APPnet2
+    Export:
+      Name: APPsubnet2

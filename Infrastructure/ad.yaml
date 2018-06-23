@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Create AWS SimpleAD"
+
+Resources:
+  myDirectory:
+    Type: AWS::DirectoryService::SimpleAD
+    Properties:
+      Name: workspace.example.com
+      Password: SimpleADPW20!8
+      Size: Small
+      VpcSettings:
+        SubnetIds:
+          - !ImportValue APPsubnet1
+          - !ImportValue APPsubnet2
+        VpcId: !ImportValue WS-Vpc
